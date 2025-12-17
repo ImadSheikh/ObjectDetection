@@ -15,7 +15,8 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Load the model. YOLO will automatically download 'yolov8m.pt' 
 # to the root directory on the first run on Render.
-model = YOLO('yolov8m.pt') 
+# Change 'yolov8m.pt' (Medium) to 'yolov8n.pt' (Nano)
+model = YOLO('yolov8n.pt')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
