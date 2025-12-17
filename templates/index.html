@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Vision - Object Detection</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f40; text-align: center; padding: 40px; }
+        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: inline-block; }
+        .container { display: flex; justify-content: center; gap: 30px; margin-top: 30px; flex-wrap: wrap; }
+        img { max-width: 100%; height: auto; border-radius: 10px; border: 1px solid #ddd; }
+        .result-box { max-width: 500px; }
+        button { background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #45a049; }
+        input[type="file"] { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>🔍 Object Detection AI</h1>
+        <p>Upload a photo to see what the AI identifies.</p>
+        
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <br>
+            <button type="submit">Analyze Image</button>
+        </form>
+    </div>
+
+    {% if processed %}
+    <div class="container">
+        <div class="result-box">
+            <h3>Original Image</h3>
+            <img src="{{ original }}" alt="Original">
+        </div>
+        <div class="result-box">
+            <h3>AI Detection Result</h3>
+            <img src="{{ processed }}" alt="Processed">
+        </div>
+    </div>
+    {% endif %}
+
+</body>
+</html>
